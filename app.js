@@ -6,7 +6,14 @@ var methodOverride=require("method-override");
 var expressSanitizer=require("express-sanitizer");
 
 //APP CONFIG
-mongoose.connect("mongodb://localhost:27017/restful_blog_app",{useNewUrlParser : true});
+mongoose.connect("mongodb+srv://stutijain:rashi@1999@cluster0-mkt8b.mongodb.net/test?retryWrites=true&w=majority",{
+	useNewUrlParser : true,
+	useCreateIndex : true
+ }).then(()=>{
+	console.log("connected to mongodb");
+}).catch(err=>{
+	console.log("ERROR:",err.message);
+});
 app.set("view engine","ejs");
 app.use(express.static("public"));
 app.use(bodyParser.urlencoded({extended:true}));
