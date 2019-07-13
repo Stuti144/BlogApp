@@ -6,7 +6,9 @@ var methodOverride=require("method-override");
 var expressSanitizer=require("express-sanitizer");
 
 //APP CONFIG
-mongoose.connect("mongodb+srv://stutijain:rashi@1999@cluster0-mkt8b.mongodb.net/test?retryWrites=true&w=majority",{
+//mongoose.connect("mongodb://localhost:27017/restful_blog_app",{useNewUrlParser : true});
+
+mongoose.connect(process.env.DATABASEURL,{
 	useNewUrlParser : true,
 	useCreateIndex : true
  }).then(()=>{
